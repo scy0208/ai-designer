@@ -2,23 +2,23 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Noto Sans CJK SC', 'Noto Sans SC', 'sans-serif'],
-        serif: ['Noto Serif CJK SC', 'serif'],
+        sans: ['Noto Sans SC', 'Noto Sans CJK SC', 'sans-serif'],
+        serif: ['Noto Serif SC', 'Noto Serif CJK SC', 'Noto Sans SC', 'serif'],
       },
       colors: {
-        slide: {
-          bg: '#0A0E1F',
-          accent: '#5B9AE8',
-          accentLight: '#74b2ea',
-          text: '#C8D8E8',
-          muted: '#6B7FA0',
-          heading: '#FFFFFF',
+        flyer: {
+          bg: '#162038',
+          text: '#b0b0b3',
+          heading: '#f0f3f7',
         }
       }
     }
@@ -26,6 +26,7 @@ tailwind.config = {
 }
 </script>
 <style type="text/tailwindcss">
+  /* Only styles that can't be expressed with Tailwind utilities */
   @layer utilities {
     .slide {
       width: 1920px;
@@ -34,18 +35,44 @@ tailwind.config = {
       overflow: hidden;
       page-break-after: always;
     }
-    .slide-glow {
-      background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(74,138,212,0.15) 0%, transparent 70%);
-    }
-    .scan-lines {
-      background-image: repeating-linear-gradient(
-        0deg, transparent, transparent 3px, rgba(74,138,212,0.03) 3px, rgba(74,138,212,0.03) 4px
-      );
-    }
-    .gradient-text-gold {
-      background: linear-gradient(90deg, #5B9AE8, #a78bfa);
+    .gradient-text-blue {
+      background: linear-gradient(90deg, #74b2ea 0%, #a78bfa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 8px rgba(59,130,246,0.9))
+             drop-shadow(0 0 20px rgba(59,130,246,0.6))
+             drop-shadow(0 0 40px rgba(37,99,235,0.4));
+    }
+    .gradient-text-badge {
+      background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(96,165,250,0.7));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 8px rgba(59,130,246,0.9))
+             drop-shadow(0 0 20px rgba(59,130,246,0.6))
+             drop-shadow(0 0 40px rgba(37,99,235,0.4));
+    }
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 8px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 8px, transparent 1px);
+      background-size: 128px 128px;
+    }
+    .center-gradient-line {
+      background: linear-gradient(180deg,
+        transparent 5%,
+        rgba(96,165,250,0.35) 20%,
+        rgba(139,92,246,0.35) 50%,
+        rgba(6,182,212,0.35) 80%,
+        transparent 95%
+      );
+    }
+    .bottom-gradient-accent {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+    }
+    .divider-gradient {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
     }
   }
 </style>
@@ -53,214 +80,325 @@ tailwind.config = {
 <body class="bg-black">
 
 <!-- ====== SLIDE 1: TITLE ====== -->
-<div class="slide bg-slide-bg">
-  <div class="absolute inset-0 slide-glow"></div>
-  <div class="absolute inset-0 scan-lines"></div>
-  <div class="relative z-10 flex flex-col items-center justify-center h-full px-20">
-    <div class="text-[14px] font-medium tracking-[14px] text-slide-accent/60 uppercase mb-8">ENTREPRENEUR HAPPINESS GROUP</div>
-    <img src="assets/创业幸福小组logo.png" alt="logo" class="h-[120px] mb-10 opacity-90" />
-    <h1 class="font-serif text-[72px] font-black tracking-[8px] text-white mb-6">创业幸福小组</h1>
-    <div class="text-[28px] tracking-[6px] text-slide-text/70">2026  ·  第三期  ·  8周深度成长营</div>
-    <div class="absolute bottom-12 w-[200px] h-[2px] bg-gradient-to-r from-transparent via-slide-accent/40 to-transparent"></div>
+<div class="slide bg-flyer-bg font-sans text-white">
+  <!-- Background gradient orbs -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -top-[300px] -right-[200px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.65) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] top-[400px] -left-[300px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1000px] h-[1000px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.45) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[700px] h-[700px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.38) 0%, transparent 70%)"></div>
   </div>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col items-center justify-center h-full px-20">
+    <div class="text-[16px] font-medium tracking-[5px] text-blue-400/70 uppercase mb-8">ENTREPRENEUR HAPPINESS GROUP</div>
+    <img src="assets/创业幸福小组logo.png" alt="logo" class="h-[120px] mb-10 opacity-95" />
+    <h1 class="font-serif text-[84px] font-black leading-[1.22] tracking-[5px] text-flyer-heading mb-6">创业幸福小组</h1>
+    <div class="text-[32px] tracking-[6px] text-flyer-text/70 font-light">2026  ·  第三期  ·  8周深度成长营</div>
+  </div>
+  <!-- Bottom accent bar -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
 <!-- ====== SLIDE 2: 欢迎 ====== -->
-<div class="slide bg-slide-bg">
-  <div class="absolute inset-0 slide-glow"></div>
-  <div class="absolute inset-0 scan-lines"></div>
+<div class="slide bg-flyer-bg font-sans text-white">
+  <!-- Background gradient orbs -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -top-[300px] -right-[200px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.65) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] top-[400px] -left-[300px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1000px] h-[1000px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.45) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[700px] h-[700px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.38) 0%, transparent 70%)"></div>
+  </div>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <!-- Content -->
   <div class="relative z-10 flex flex-col justify-center h-full px-28">
-    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">WELCOME</div>
-    <h2 class="font-serif text-[48px] font-bold text-white mb-12">欢迎</h2>
-    <div class="text-[26px] leading-[2] text-slide-text font-light max-w-[1400px]">
+    <div class="text-[16px] font-medium tracking-[5px] text-blue-400/70 uppercase mb-6">WELCOME</div>
+    <h2 class="font-serif text-[64px] font-black leading-[1.22] tracking-[3px] text-flyer-heading mb-12">欢迎</h2>
+    <div class="text-[30px] leading-[2] text-flyer-text font-light max-w-[1400px]">
       我们是一群创业者，也是基督徒。<br/><br/>
       我们发现，信仰让我们成为了更好的创业者——<br/>
-      <span class="text-slide-accentLight font-normal">更多的平安，更少的焦虑；</span><br/>
+      <span class="text-blue-400 font-normal">更多的平安，更少的焦虑；</span><br/>
       在风云变幻中能更冷静地做决策；<br/>
-      <span class="text-slide-accentLight font-normal">团队更合一，事业也意想不到地蒙福。</span><br/><br/>
+      <span class="text-blue-400 font-normal">团队更合一，事业也意想不到地蒙福。</span><br/><br/>
       所以我们办了这个小组，想把这份经历分享给更多同路人。
     </div>
   </div>
+  <!-- Bottom accent bar -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
 <!-- ====== SLIDE 3: 使命 ====== -->
-<div class="slide bg-slide-bg">
-  <div class="absolute inset-0 slide-glow"></div>
-  <div class="absolute inset-0 scan-lines"></div>
+<div class="slide bg-flyer-bg font-sans text-white">
+  <!-- Background gradient orbs -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -top-[300px] -right-[200px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.65) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] top-[400px] -left-[300px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1000px] h-[1000px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.45) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[700px] h-[700px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.38) 0%, transparent 70%)"></div>
+  </div>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <!-- Content -->
   <div class="relative z-10 flex flex-col justify-center h-full px-28">
-    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">OUR MISSION</div>
-    <h2 class="font-serif text-[48px] font-bold text-white mb-4">我们的使命</h2>
-    <div class="font-serif text-[32px] font-bold gradient-text-gold mb-14">把幸福带给创业者，陪你走最难的路</div>
+    <div class="text-[16px] font-medium tracking-[5px] text-blue-400/70 uppercase mb-6">OUR MISSION</div>
+    <h2 class="font-serif text-[64px] font-black leading-[1.22] tracking-[3px] text-flyer-heading mb-4">我们的使命</h2>
+    <div class="font-serif text-[42px] font-bold leading-[1.22] tracking-[3px] gradient-text-blue mb-14">把幸福带给创业者，陪你走最难的路</div>
 
     <div class="flex flex-col gap-10 max-w-[1400px]">
       <div class="flex items-start gap-8">
-        <div class="text-[18px] font-bold tracking-[3px] text-slide-accent/40 shrink-0 mt-1">01</div>
-        <div class="text-[24px] leading-[1.8] text-slide-text font-light">
-          分享真实改变创业者人生的故事，<br/>和带来改变的原因——<span class="text-white font-medium">信仰</span>
+        <div class="text-[18px] font-bold tracking-[3px] text-blue-400 opacity-50 shrink-0 mt-1">01</div>
+        <div class="text-[32px] leading-[1.8] text-flyer-text font-light">
+          分享真实改变创业者人生的故事，<br/>和带来改变的原因——<span class="text-flyer-heading font-medium">信仰</span>
         </div>
       </div>
       <div class="flex items-start gap-8">
-        <div class="text-[18px] font-bold tracking-[3px] text-slide-accent/40 shrink-0 mt-1">02</div>
-        <div class="text-[24px] leading-[1.8] text-slide-text font-light">
-          帮助创业者在<span class="text-white font-medium">内在生命成长</span>与<span class="text-white font-medium">外在商业技能</span>上同步推进
+        <div class="text-[18px] font-bold tracking-[3px] text-violet-400 opacity-50 shrink-0 mt-1">02</div>
+        <div class="text-[32px] leading-[1.8] text-flyer-text font-light">
+          帮助创业者在<span class="text-flyer-heading font-medium">内在生命成长</span>与<span class="text-flyer-heading font-medium">外在商业技能</span>上同步推进
         </div>
       </div>
       <div class="flex items-start gap-8">
-        <div class="text-[18px] font-bold tracking-[3px] text-slide-accent/40 shrink-0 mt-1">03</div>
-        <div class="text-[24px] leading-[1.8] text-slide-text font-light">
-          创业不再孤独，我们共建社区，<br/>与一群真正理解你的人<span class="text-white font-medium">共同成长</span>
+        <div class="text-[18px] font-bold tracking-[3px] text-cyan-400 opacity-50 shrink-0 mt-1">03</div>
+        <div class="text-[32px] leading-[1.8] text-flyer-text font-light">
+          创业不再孤独，我们共建社区，<br/>与一群真正理解你的人<span class="text-flyer-heading font-medium">共同成长</span>
         </div>
       </div>
     </div>
   </div>
+  <!-- Bottom accent bar -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
 <!-- ====== SLIDE 4: 我们的故事 ====== -->
-<div class="slide bg-slide-bg">
-  <div class="absolute inset-0 slide-glow"></div>
-  <div class="absolute inset-0 scan-lines"></div>
+<div class="slide bg-flyer-bg font-sans text-white">
+  <!-- Background gradient orbs -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -top-[300px] -right-[200px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.65) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] top-[400px] -left-[300px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1000px] h-[1000px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.45) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[700px] h-[700px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.38) 0%, transparent 70%)"></div>
+  </div>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <!-- Content -->
   <div class="relative z-10 flex flex-col justify-center h-full px-28">
-    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">OUR STORY</div>
-    <h2 class="font-serif text-[48px] font-bold text-white mb-3">我们的故事</h2>
-    <div class="text-[20px] tracking-[4px] text-slide-muted mb-14">2024年至今  ·  第三期  ·  累计超过百人参与</div>
+    <div class="text-[16px] font-medium tracking-[5px] text-blue-400/70 uppercase mb-6">OUR STORY</div>
+    <h2 class="font-serif text-[64px] font-black leading-[1.22] tracking-[3px] text-flyer-heading mb-3">我们的故事</h2>
+    <div class="text-[24px] tracking-[4px] text-flyer-text/70 mb-14">2024年至今  ·  第三期  ·  累计超过百人参与</div>
 
     <div class="flex flex-col gap-6 max-w-[1400px]">
       <div class="flex items-center gap-5">
-        <div class="w-2 h-2 rounded-full bg-slide-accent/50 shrink-0"></div>
-        <div class="text-[24px] text-slide-text font-light">有经历过<span class="text-white font-medium">高价收购</span>的连续创业者</div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0"></div>
+        <div class="text-[32px] text-flyer-text font-light">有经历过<span class="text-flyer-heading font-medium">高价收购</span>的连续创业者</div>
       </div>
       <div class="flex items-center gap-5">
-        <div class="w-2 h-2 rounded-full bg-slide-accent/50 shrink-0"></div>
-        <div class="text-[24px] text-slide-text font-light">有完成<span class="text-white font-medium">百万美元融资</span>的创业者</div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0"></div>
+        <div class="text-[32px] text-flyer-text font-light">有完成<span class="text-flyer-heading font-medium">百万美元融资</span>的创业者</div>
       </div>
       <div class="flex items-center gap-5">
-        <div class="w-2 h-2 rounded-full bg-slide-accent/50 shrink-0"></div>
-        <div class="text-[24px] text-slide-text font-light">有人在我们中间找到了<span class="text-white font-medium">合伙人</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0"></div>
+        <div class="text-[32px] text-flyer-text font-light">有人在我们中间找到了<span class="text-flyer-heading font-medium">合伙人</span></div>
       </div>
       <div class="flex items-center gap-5">
-        <div class="w-2 h-2 rounded-full bg-slide-accent/50 shrink-0"></div>
-        <div class="text-[24px] text-slide-text font-light">有人在参加完活动后迈出了<span class="text-white font-medium">创业第一步</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0"></div>
+        <div class="text-[32px] text-flyer-text font-light">有人在参加完活动后迈出了<span class="text-flyer-heading font-medium">创业第一步</span></div>
       </div>
       <div class="flex items-center gap-5 mt-4">
-        <div class="w-2 h-2 rounded-full bg-slide-accentLight shrink-0"></div>
-        <div class="text-[24px] text-slide-text font-light">更有超过十位伙伴，在这里<span class="text-white font-medium">收获了信仰</span>，找到了内心真正的平安与人生方向</div>
+        <div class="w-[5px] h-[5px] rounded-full bg-blue-400/60 shrink-0"></div>
+        <div class="text-[32px] text-flyer-text font-light">更有超过十位伙伴，在这里<span class="text-flyer-heading font-medium">收获了信仰</span>，找到了内心真正的平安与人生方向</div>
       </div>
     </div>
   </div>
+  <!-- Bottom accent bar -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
 <!-- ====== SLIDE 5: 照片 Placeholder 1 ====== -->
-<div class="slide bg-slide-bg">
-  <div class="absolute inset-0 slide-glow"></div>
-  <div class="absolute inset-0 scan-lines"></div>
+<div class="slide bg-flyer-bg font-sans text-white">
+  <!-- Background gradient orbs -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -top-[300px] -right-[200px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.65) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] top-[400px] -left-[300px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1000px] h-[1000px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.45) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[700px] h-[700px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.38) 0%, transparent 70%)"></div>
+  </div>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <!-- Content -->
   <div class="relative z-10 flex flex-col items-center justify-center h-full">
-    <div class="w-[1600px] h-[800px] border-2 border-dashed border-slide-accent/20 rounded-2xl flex items-center justify-center">
-      <div class="text-[36px] text-slide-muted/40 tracking-[4px]">往期活动照片</div>
+    <div class="w-[1600px] h-[800px] border-2 border-dashed border-blue-500/20 rounded-2xl flex items-center justify-center">
+      <div class="text-[36px] text-flyer-text/40 tracking-[4px]">往期活动照片</div>
     </div>
   </div>
+  <!-- Bottom accent bar -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
 <!-- ====== SLIDE 6: 照片 Placeholder 2 ====== -->
-<div class="slide bg-slide-bg">
-  <div class="absolute inset-0 slide-glow"></div>
-  <div class="absolute inset-0 scan-lines"></div>
+<div class="slide bg-flyer-bg font-sans text-white">
+  <!-- Background gradient orbs -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -top-[300px] -right-[200px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.65) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] top-[400px] -left-[300px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1000px] h-[1000px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.45) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[700px] h-[700px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.38) 0%, transparent 70%)"></div>
+  </div>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <!-- Content -->
   <div class="relative z-10 flex flex-col items-center justify-center h-full">
-    <div class="w-[1600px] h-[800px] border-2 border-dashed border-slide-accent/20 rounded-2xl flex items-center justify-center">
-      <div class="text-[36px] text-slide-muted/40 tracking-[4px]">小组讨论 / 合影</div>
+    <div class="w-[1600px] h-[800px] border-2 border-dashed border-blue-500/20 rounded-2xl flex items-center justify-center">
+      <div class="text-[36px] text-flyer-text/40 tracking-[4px]">小组讨论 / 合影</div>
     </div>
   </div>
+  <!-- Bottom accent bar -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
 <!-- ====== SLIDE 7: 创业实战干货 ====== -->
-<div class="slide bg-slide-bg">
-  <div class="absolute inset-0 slide-glow"></div>
-  <div class="absolute inset-0 scan-lines"></div>
+<div class="slide bg-flyer-bg font-sans text-white">
+  <!-- Background gradient orbs (boosted for content-heavy slide) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1600px] h-[1600px] -top-[400px] -right-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.75) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] top-[200px] -left-[400px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.6) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.5) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.45) 0%, transparent 70%)"></div>
+  </div>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <!-- Content -->
   <div class="relative z-10 flex flex-col justify-center h-full px-28">
-    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">WHAT YOU'LL GET</div>
-    <h2 class="font-serif text-[42px] font-bold text-white mb-3">这8周你会得到什么</h2>
-    <div class="text-[22px] tracking-[4px] text-slide-accent/70 mb-12">创业实战干货  ·  每周一个专题</div>
+    <div class="text-[16px] font-medium tracking-[5px] text-blue-400/70 uppercase mb-6">PRACTICAL SKILLS</div>
+    <h2 class="font-serif text-[64px] font-black leading-[1.22] tracking-[3px] text-flyer-heading mb-3">创业实战干货</h2>
+    <div class="text-[28px] tracking-[4px] text-blue-400/75 mb-12">每周一个专题</div>
 
     <div class="grid grid-cols-2 gap-x-16 gap-y-5 max-w-[1600px]">
       <div class="flex items-start gap-4">
-        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
-        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">我是否该创业？</span><br/><span class="text-[17px] text-slide-muted">创业 readiness 坐标轴，清楚定位自己</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0 mt-[14px]"></div>
+        <div class="text-[30px] text-flyer-text font-light leading-[1.6]"><span class="text-flyer-heading font-medium">我是否该创业？</span><br/><span class="text-[24px] text-flyer-text/70">创业 readiness 坐标轴</span></div>
       </div>
       <div class="flex items-start gap-4">
-        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
-        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">创业合伙人如何选择</span><br/><span class="text-[17px] text-slide-muted">怎么找、什么标准、如何提前准备</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0 mt-[14px]"></div>
+        <div class="text-[30px] text-flyer-text font-light leading-[1.6]"><span class="text-flyer-heading font-medium">创业合伙人该如何选择</span><br/><span class="text-[24px] text-flyer-text/70">怎么找、什么标准</span></div>
       </div>
       <div class="flex items-start gap-4">
-        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
-        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">创业法律避坑指南</span><br/><span class="text-[17px] text-slide-muted">法律常识与法务基础 setup</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0 mt-[14px]"></div>
+        <div class="text-[30px] text-flyer-text font-light leading-[1.6]"><span class="text-flyer-heading font-medium">创业法律避坑指南</span><br/><span class="text-[24px] text-flyer-text/70">法律常识与法务基础</span></div>
       </div>
       <div class="flex items-start gap-4">
-        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
-        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">BP 与 Pitch Deck</span><br/><span class="text-[17px] text-slide-muted">写出让投资人买单的商业计划书</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0 mt-[14px]"></div>
+        <div class="text-[30px] text-flyer-text font-light leading-[1.6]"><span class="text-flyer-heading font-medium">商业计划书与 Pitch Deck</span><br/><span class="text-[24px] text-flyer-text/70">让投资人买单的 BP</span></div>
       </div>
       <div class="flex items-start gap-4">
-        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
-        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">投资人寻找与融资节奏</span><br/><span class="text-[17px] text-slide-muted">投资人关系网，有节奏地 Pitch</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0 mt-[14px]"></div>
+        <div class="text-[30px] text-flyer-text font-light leading-[1.6]"><span class="text-flyer-heading font-medium">投资人寻找与融资节奏</span><br/><span class="text-[24px] text-flyer-text/70">投资人关系网与 Pitch</span></div>
       </div>
       <div class="flex items-start gap-4">
-        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
-        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">SAFE & Convertible Note</span><br/><span class="text-[17px] text-slide-muted">融资法律基础，看懂 term sheet</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0 mt-[14px]"></div>
+        <div class="text-[30px] text-flyer-text font-light leading-[1.6]"><span class="text-flyer-heading font-medium">SAFE & Convertible Note</span><br/><span class="text-[24px] text-flyer-text/70">融资法律基础</span></div>
       </div>
       <div class="flex items-start gap-4">
-        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
-        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">AI时代的产品打造</span><br/><span class="text-[17px] text-slide-muted">实战案例与工程团队配置</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0 mt-[14px]"></div>
+        <div class="text-[30px] text-flyer-text font-light leading-[1.6]"><span class="text-flyer-heading font-medium">AI时代的产品打造</span><br/><span class="text-[24px] text-flyer-text/70">实战案例与工程团队配置</span></div>
       </div>
       <div class="flex items-start gap-4">
-        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
-        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">toB 销售 & toC 增长</span><br/><span class="text-[17px] text-slide-muted">BD、Sales、投流、运营、社区</span></div>
+        <div class="w-[5px] h-[5px] rounded-full bg-white/[0.18] shrink-0 mt-[14px]"></div>
+        <div class="text-[30px] text-flyer-text font-light leading-[1.6]"><span class="text-flyer-heading font-medium">toB 销售 & toC 增长</span><br/><span class="text-[24px] text-flyer-text/70">BD、Sales、投流、运营与社区增长</span></div>
       </div>
     </div>
   </div>
+  <!-- Bottom accent bar -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
 <!-- ====== SLIDE 8: 生命成长线 ====== -->
-<div class="slide bg-slide-bg">
-  <div class="absolute inset-0 slide-glow"></div>
-  <div class="absolute inset-0 scan-lines"></div>
+<div class="slide bg-flyer-bg font-sans text-white">
+  <!-- Background gradient orbs (boosted for content-heavy slide) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1600px] h-[1600px] -top-[400px] -right-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.75) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] top-[200px] -left-[400px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.6) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.5) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.45) 0%, transparent 70%)"></div>
+  </div>
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <!-- Content -->
   <div class="relative z-10 flex flex-col justify-center h-full px-28">
-    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">WHAT YOU'LL GET</div>
-    <h2 class="font-serif text-[42px] font-bold text-white mb-3">这8周你会得到什么</h2>
-    <div class="text-[22px] tracking-[4px] text-slide-accent/70 mb-12">生命成长线  ·  每周小组深度讨论</div>
+    <div class="text-[16px] font-medium tracking-[5px] text-blue-400/70 uppercase mb-6">SPIRITUAL GROWTH</div>
+    <h2 class="font-serif text-[64px] font-black leading-[1.22] tracking-[3px] text-flyer-heading mb-3">生命成长线</h2>
+    <div class="text-[24px] tracking-[4px] text-violet-400/75 mb-12">每周小组深度讨论</div>
 
-    <div class="flex flex-col gap-7 max-w-[1400px]">
+    <div class="flex flex-col gap-5 max-w-[1500px]">
       <div class="flex items-center gap-6">
-        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">01</div>
-        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">真幸福</span> — 创业中快速找到幸福感与笃定感的捷径</div>
+        <div class="text-[18px] font-bold text-blue-400 opacity-50 shrink-0 w-8">01</div>
+        <div class="text-[32px] text-flyer-text font-light"><span class="text-flyer-heading font-medium">真幸福</span> — 创业中快速找到幸福感与笃定感的捷径</div>
       </div>
       <div class="flex items-center gap-6">
-        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">02</div>
-        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">真相大白</span> — 创业者为什么这么焦虑和痛苦</div>
+        <div class="text-[18px] font-bold text-blue-400 opacity-50 shrink-0 w-8">02</div>
+        <div class="text-[34px] text-flyer-text font-light"><span class="text-flyer-heading font-medium">真相大白</span> — 创业者为什么这么焦虑和痛苦</div>
       </div>
       <div class="flex items-center gap-6">
-        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">03</div>
-        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">万世巨星</span> — 有请人生和公司的董事长正式出场</div>
+        <div class="text-[18px] font-bold text-violet-400 opacity-50 shrink-0 w-8">03</div>
+        <div class="text-[34px] text-flyer-text font-light"><span class="text-flyer-heading font-medium">万世巨星</span> — 有请人生和公司的董事长正式出场</div>
       </div>
       <div class="flex items-center gap-6">
-        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">04</div>
-        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">幸福连线</span> — 孤独创业路上的烦恼该给谁说</div>
+        <div class="text-[18px] font-bold text-violet-400 opacity-50 shrink-0 w-8">04</div>
+        <div class="text-[34px] text-flyer-text font-light"><span class="text-flyer-heading font-medium">幸福连线</span> — 孤独创业路上的烦恼该给谁说</div>
       </div>
       <div class="flex items-center gap-6">
-        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">05</div>
-        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">当上帝来敲门</span> — 如何邀请董事长入职</div>
+        <div class="text-[18px] font-bold text-violet-400 opacity-50 shrink-0 w-8">05</div>
+        <div class="text-[34px] text-flyer-text font-light"><span class="text-flyer-heading font-medium">当上帝来敲门</span> — 如何邀请董事长入职</div>
       </div>
       <div class="flex items-center gap-6">
-        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">06</div>
-        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">十字架的胜利</span> — 以终为始：什么是成功的人生</div>
+        <div class="text-[18px] font-bold text-cyan-400 opacity-50 shrink-0 w-8">06</div>
+        <div class="text-[34px] text-flyer-text font-light"><span class="text-flyer-heading font-medium">十字架的胜利</span> — 以终为始：什么是成功的人生</div>
       </div>
       <div class="flex items-center gap-6">
-        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">07</div>
-        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">释放与自由</span> — 用新视角回看走过的路程与挑战</div>
+        <div class="text-[18px] font-bold text-cyan-400 opacity-50 shrink-0 w-8">07</div>
+        <div class="text-[34px] text-flyer-text font-light"><span class="text-flyer-heading font-medium">释放与自由</span> — 用新视角回看走过的路程与挑战</div>
       </div>
       <div class="flex items-center gap-6">
-        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">08</div>
-        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">幸福的教会</span> — 地上的事业如何关联天国的事业</div>
+        <div class="text-[18px] font-bold text-cyan-400 opacity-50 shrink-0 w-8">08</div>
+        <div class="text-[34px] text-flyer-text font-light"><span class="text-flyer-heading font-medium">幸福的教会</span> — 地上的事业如何关联天国的事业</div>
       </div>
     </div>
   </div>
+  <!-- Bottom accent bar -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
 </body>

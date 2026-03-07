@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sf: ['"SF Pro Display"', '-apple-system', 'BlinkMacSystemFont', '"PingFang SC"', '"Noto Sans CJK SC"', 'sans-serif'],
+      },
+      colors: {
+        apple: {
+          white: '#fbfbfd',
+          bg: '#f5f5f7',
+          text: '#1d1d1f',
+          gray: '#86868b',
+          gray2: '#6e6e73',
+          gray3: '#d2d2d7',
+          blue: '#0071e3',
+          blue2: '#2997ff',
+          link: '#0066cc',
+        }
+      },
+      letterSpacing: {
+        'apple-tight': '-0.015em',
+        'apple-headline': '-0.025em',
+        'cn-wide': '0.12em',
+        'cn-wider': '0.2em',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+  @layer utilities {
+    .gradient-text-apple {
+      background: linear-gradient(135deg, #0071e3 0%, #a855f7 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .divider-apple {
+      background: linear-gradient(90deg, transparent 0%, #d2d2d7 50%, transparent 100%);
+    }
+  }
+</style>
+</head>
+<body class="w-[2550px] h-[3300px] bg-apple-white font-sf text-apple-text overflow-hidden relative">
+
+<!-- Content container: design at 1080px, scale to fill 2550px -->
+<div class="w-[1080px] h-[1397px] origin-top-left scale-[2.3611] flex flex-col relative">
+
+  <!-- === HERO SECTION — Apple style: label → big visual → headline → body === -->
+  <div class="flex flex-col items-center text-center pt-14 pb-6 px-16">
+    <!-- Category label (like Apple's "Fitness" or "Personalized listening") -->
+    <p class="text-[13px] font-semibold tracking-[5px] uppercase text-apple-blue mb-8">Entrepreneur Happiness Group</p>
+
+    <!-- Hero visual — the calligraphy logo as the centerpiece -->
+    <img src="assets/logo-black.png" alt="创业幸福团契" class="h-[260px] w-auto mb-10" />
+
+    <!-- Hero headline -->
+    <h1 class="text-[64px] font-bold leading-[1.1] tracking-apple-headline text-apple-text mb-5">
+      在不确定的时代，<br/>寻找创业的<span class="gradient-text-apple">笃定感</span>。
+    </h1>
+
+    <!-- Sub-headline body — Apple gray, centered -->
+    <p class="text-[19px] font-normal leading-[1.7] tracking-[0.01em] text-apple-gray max-w-[620px]">
+      从商业实战到信仰内核，八周，重新定义你的创业底层操作系统。在硅谷，谁来关怀那个深夜独自焦虑的创始人？当资金告急、前路不明——除了商业逻辑，我们还能倚靠什么？
+    </p>
+  </div>
+
+  <!-- === SECTION DIVIDER === -->
+  <div class="px-16 mt-2 mb-6">
+    <div class="w-full h-[1px] divider-apple"></div>
+  </div>
+
+  <!-- === THREE PILLARS — Apple 3-column grid === -->
+  <div class="px-16 mb-6">
+    <p class="text-[13px] font-semibold tracking-[5px] uppercase text-apple-gray2 text-center mb-8">这八周，你将收获</p>
+    <div class="grid grid-cols-3 gap-0">
+      <!-- Pillar 01 -->
+      <div class="pr-10 border-r border-apple-gray3/60">
+        <p class="text-[12px] font-semibold tracking-[3px] text-apple-blue mb-2">01</p>
+        <h3 class="text-[28px] font-semibold leading-[1.2] tracking-apple-tight text-apple-text mb-3">专业实战</h3>
+        <p class="text-[15px] font-normal leading-[1.8] text-apple-gray">
+          连续创业者分享合伙人构建、BP 打磨、VC 对接与融资全流程。资深律师深度拆解 Term Sheet、SAFE 与股权架构。
+        </p>
+      </div>
+      <!-- Pillar 02 -->
+      <div class="px-10 border-r border-apple-gray3/60">
+        <p class="text-[12px] font-semibold tracking-[3px] text-purple-500 mb-2">02</p>
+        <h3 class="text-[28px] font-semibold leading-[1.2] tracking-apple-tight text-apple-text mb-3">真实故事</h3>
+        <p class="text-[15px] font-normal leading-[1.8] text-apple-gray">
+          资金链断裂后拿下政府订单。四次创业找到内心平安。辞职创业融资百万。每个故事，都是一面镜子。
+        </p>
+      </div>
+      <!-- Pillar 03 -->
+      <div class="pl-10">
+        <p class="text-[12px] font-semibold tracking-[3px] text-pink-500 mb-2">03</p>
+        <h3 class="text-[28px] font-semibold leading-[1.2] tracking-apple-tight text-apple-text mb-3">信仰探索</h3>
+        <p class="text-[15px] font-normal leading-[1.8] text-apple-gray">
+          剥去创业者的外壳，回归生命本质。理解焦虑的根源，学习放手的智慧，探索超越商业逻辑的力量。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- === STORIES — 2x2 quote grid === -->
+  <div class="px-16 mb-4">
+    <div class="w-full h-[1px] divider-apple mb-6"></div>
+    <div class="grid grid-cols-2 gap-x-10 gap-y-4">
+      <div class="pl-5 border-l-[2px] border-apple-blue/30">
+        <p class="text-[13.5px] leading-[1.75] text-apple-gray font-light">
+          她经历过资金链断裂的至暗时刻，也拿到美国政府机构订单——<span class="text-apple-text font-normal">在高峰低谷之间，找到了不动摇的根基。</span>
+        </p>
+      </div>
+      <div class="pl-5 border-l-[2px] border-purple-500/30">
+        <p class="text-[13.5px] leading-[1.75] text-apple-gray font-light">
+          他四次创业，走过被收购的高光，也遭遇泡沫破裂后的折戟——<span class="text-apple-text font-normal">却在惊涛骇浪中，发现了通往平安的心灵捷径。</span>
+        </p>
+      </div>
+      <div class="pl-5 border-l-[2px] border-pink-500/30">
+        <p class="text-[13.5px] leading-[1.75] text-apple-gray font-light">
+          他曾在大厂衣食无忧，却选择辞职创业，在一个没人看好的方向上融资百万——<span class="text-apple-text font-normal">迈出信心的一步需要先相信再看见。</span>
+        </p>
+      </div>
+      <div class="pl-5 border-l-[2px] border-apple-gray3">
+        <p class="text-[13.5px] leading-[1.75] text-apple-gray font-light">
+          他们因信仰相遇成为合伙人，用 AI 培养社会急需的医疗护工——<span class="text-apple-text font-normal">当世界用 AI 淘汰人，信仰让他们看见人的价值。</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- === BOTTOM INFO BAR === -->
+  <div class="mt-auto px-16 pb-10">
+    <div class="w-full h-[1px] divider-apple mb-7"></div>
+    <div class="flex items-end justify-between">
+      <!-- Left: time & location & cost -->
+      <div class="flex items-start gap-12">
+        <div>
+          <p class="text-[11px] font-semibold tracking-[3px] uppercase text-apple-gray2 mb-2">时间</p>
+          <p class="text-[16px] font-normal text-apple-text leading-[1.6]">2026.03.08 起<br/>连续 8 周 &middot; 每周日<br/>2:00 – 5:00 PM</p>
+        </div>
+        <div>
+          <p class="text-[11px] font-semibold tracking-[3px] uppercase text-apple-gray2 mb-2">地点</p>
+          <p class="text-[16px] font-normal text-apple-text leading-[1.6]">10340 Bubb Rd<br/>Cupertino, CA 95014</p>
+        </div>
+        <div>
+          <p class="text-[11px] font-semibold tracking-[3px] uppercase text-apple-gray2 mb-2">费用</p>
+          <p class="text-[16px] font-normal text-apple-text leading-[1.6]">免费</p>
+        </div>
+      </div>
+      <!-- Right: QR code -->
+      <div class="flex flex-col items-center gap-2">
+        <img src="assets/adobe-express-qr-code.png" alt="QR Code" class="w-[88px] h-[88px] rounded-[12px]" />
+        <p class="text-[11px] tracking-[2px] text-apple-gray2">扫码报名</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

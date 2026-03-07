@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Noto Sans CJK SC', 'sans-serif'],
+        serif: ['Noto Serif CJK SC', 'Noto Sans CJK SC', 'serif'],
+      },
+      colors: {
+        flyer: {
+          bg: '#FBF6F0',
+          text: '#5C4A3A',
+          heading: '#2A1F16',
+          muted: '#8C7A6A',
+        }
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+  @layer utilities {
+    .gradient-text-warm {
+      background: linear-gradient(90deg, #c2410c 0%, #b91c1c 50%, #9a3412 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-text-badge {
+      background: linear-gradient(90deg, #78350f, #9a3412);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(180,120,60,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180,120,60,0.06) 1px, transparent 1px);
+      background-size: 128px 128px;
+    }
+    .center-gradient-line {
+      background: linear-gradient(180deg,
+        transparent 5%,
+        rgba(194,65,12,0.15) 20%,
+        rgba(185,28,28,0.12) 50%,
+        rgba(180,83,9,0.15) 80%,
+        transparent 95%
+      );
+    }
+    .bottom-gradient-accent {
+      background: linear-gradient(90deg, #ea580c, #dc2626, #c2410c);
+    }
+  }
+</style>
+</head>
+<body class="w-[2550px] h-[3300px] bg-flyer-bg font-sans text-flyer-text overflow-hidden relative">
+
+<!-- Background gradient orbs — soft warm washes -->
+<div class="absolute inset-0 z-0">
+  <div class="absolute rounded-full blur-[400px] w-[2200px] h-[2200px] -top-[500px] -right-[400px]"
+       style="background: radial-gradient(circle, rgba(251,191,36,0.18) 0%, transparent 70%)"></div>
+  <div class="absolute rounded-full blur-[400px] w-[1800px] h-[1800px] top-[1600px] -left-[400px]"
+       style="background: radial-gradient(circle, rgba(248,113,113,0.12) 0%, transparent 70%)"></div>
+  <div class="absolute rounded-full blur-[400px] w-[1600px] h-[1600px] -bottom-[200px] -right-[200px]"
+       style="background: radial-gradient(circle, rgba(234,88,12,0.10) 0%, transparent 70%)"></div>
+  <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] top-[400px] left-[200px]"
+       style="background: radial-gradient(circle, rgba(253,224,71,0.12) 0%, transparent 70%)"></div>
+</div>
+
+<!-- Grid overlay -->
+<div class="absolute inset-0 z-[1] grid-pattern"></div>
+
+<!-- Content -->
+<div class="relative z-10 px-16 pt-10 pb-9 w-[1080px] flex flex-col origin-top-left scale-[2.3611]">
+
+  <!-- Hero -->
+  <div class="mb-8 grid grid-cols-[1fr_auto] gap-10 items-stretch">
+    <!-- Hero left -->
+    <div class="flex flex-col justify-between">
+      <div class="text-[13px] font-medium text-orange-700/60 tracking-[5px] uppercase mb-3">ENTREPRENEUR HAPPINESS GROUP</div>
+      <h1 class="font-serif text-[48px] font-black leading-[1.22] tracking-[3px] mb-2 text-flyer-heading">
+        在不确定的时代<br/>寻找创业的<span class="gradient-text-warm">笃定感</span>
+      </h1>
+      <div class="text-lg font-normal text-orange-800/50 tracking-[8px] mb-2">从 商 业 实 战 到 信 仰 内 核 </div>
+      <div class="text-[19px] font-light leading-[1.8] text-flyer-text">
+        在硅谷，我们每天刷着 AI 新突破、融资新动态、估值新基准——<br/>
+        但谁来关怀那个深夜独自焦虑的创始人？<br/>
+        当资金告急、团队动荡、前路不明，<br/>
+        除了商业逻辑，我们还能倚靠什么？
+      </div>
+    </div>
+    <!-- Hero right -->
+    <div class="flex flex-col items-stretch justify-between gap-3">
+      <div class="text-center">
+        <img src="assets/logo-black.png" alt="创业幸福小组" class="w-full h-auto opacity-90 max-w-[400px]" />
+      </div>
+      <div class="flex flex-col items-center gap-2.5">
+        <span class="text-base font-medium tracking-[6px] text-flyer-muted/60">SILICON VALLEY</span>
+        <span class="text-[38px] font-bold tracking-[4px] gradient-text-badge">8 周深度成长营</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section label -->
+  <div class="text-[17px] font-semibold tracking-[4px] text-flyer-muted mt-10 mb-7">这八周，我们一起 ——</div>
+
+  <!-- Main content: two columns -->
+  <div class="grid grid-cols-[1fr_1px_1fr] mb-12">
+    <!-- Left column -->
+    <div class="flex flex-col justify-start gap-8 pr-11">
+      <!-- Block 01 -->
+      <div>
+        <div class="text-xs font-bold tracking-[3px] mb-2.5 text-orange-600/40">01</div>
+        <div class="flex items-center justify-between mb-3.5">
+          <h3 class="text-[22px] font-bold tracking-[1px] text-orange-700">学习专业实战</h3>
+          <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0 border border-orange-400/20"
+               style="background: radial-gradient(circle, rgba(234,88,12,0.08) 0%, rgba(251,191,36,0.03) 70%)">
+            <svg class="w-7 h-7 fill-orange-500/70" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+        </div>
+        <ul class="flex flex-col gap-2.5">
+          <li class="text-[17px] leading-[1.7] text-flyer-text font-light pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-[5px] before:h-[5px] before:rounded-full before:bg-orange-400/30">连续创业者分享：合伙人与团队构建、BP 打磨、VC 对接、MVP 设计及融资全流程</li>
+          <li class="text-[17px] leading-[1.7] text-flyer-text font-light pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-[5px] before:h-[5px] before:rounded-full before:bg-orange-400/30">资深律师解读：创业法律避坑指南、Term Sheet / SAFE 深度拆解、股权架构优化</li>
+        </ul>
+      </div>
+      <!-- Block 03 -->
+      <div class="mt-auto">
+        <div class="text-xs font-bold tracking-[3px] mb-2.5 text-amber-700/40">03</div>
+        <div class="flex items-center justify-between mb-3.5">
+          <h3 class="text-[22px] font-bold tracking-[1px] text-amber-800">探讨信仰基石</h3>
+          <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0 border border-amber-400/20"
+               style="background: radial-gradient(circle, rgba(180,83,9,0.08) 0%, rgba(251,191,36,0.03) 70%)">
+            <svg class="w-7 h-7 fill-amber-600/70" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+        </div>
+        <ul class="flex flex-col gap-2.5">
+          <li class="text-[17px] leading-[1.7] text-flyer-text font-light pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-[5px] before:h-[5px] before:rounded-full before:bg-amber-500/30">剥去创业者的外壳，回归生命的本质</li>
+          <li class="text-[17px] leading-[1.7] text-flyer-text font-light pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-[5px] before:h-[5px] before:rounded-full before:bg-amber-500/30">重新认识自己，理解焦虑的根源，学习放手的智慧</li>
+          <li class="text-[17px] leading-[1.7] text-flyer-text font-light pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[10px] before:w-[5px] before:h-[5px] before:rounded-full before:bg-amber-500/30">探索真理、祷告与永恒的意义</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Center divider line -->
+    <div class="center-gradient-line"></div>
+
+    <!-- Right column -->
+    <div class="flex flex-col justify-start pl-10">
+      <div class="text-xs font-bold tracking-[3px] mb-2.5 text-red-700/40">02</div>
+      <div class="flex items-center justify-between mb-[18px]">
+        <h3 class="text-[22px] font-bold tracking-[1px] text-red-800">聆听真实故事</h3>
+        <div class="w-14 h-14 rounded-full flex items-center justify-center shrink-0 border border-red-400/20"
+             style="background: radial-gradient(circle, rgba(185,28,28,0.07) 0%, rgba(251,191,36,0.03) 70%)">
+          <svg class="w-7 h-7 fill-red-500/70" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3 flex-1 justify-between">
+        <div class="flex items-start gap-3.5 p-3.5 px-[18px] bg-white/60 backdrop-blur-[6px] rounded-[10px] border border-orange-200/40 border-l-2 border-l-red-400/40 shadow-[0_2px_12px_rgba(180,83,9,0.06)]">
+          <span class="text-2xl text-red-400/50 font-serif leading-none shrink-0">&ldquo;</span>
+          <p class="text-base leading-[1.6] text-flyer-text font-light">她经历过资金链断裂的至暗时刻，也拿到美国政府机构订单——<strong class="text-flyer-heading font-medium">在高峰低谷之间，找到了不动摇的根基。</strong></p>
+        </div>
+        <div class="flex items-start gap-3.5 p-3.5 px-[18px] bg-white/60 backdrop-blur-[6px] rounded-[10px] border border-orange-200/40 border-l-2 border-l-red-400/40 shadow-[0_2px_12px_rgba(180,83,9,0.06)]">
+          <span class="text-2xl text-red-400/50 font-serif leading-none shrink-0">&ldquo;</span>
+          <p class="text-base leading-[1.6] text-flyer-text font-light">他四次创业，走过被收购的高光，也遭遇泡沫破裂后的折戟——<strong class="text-flyer-heading font-medium">却在惊涛骇浪中，发现了通往平安的心灵捷径。</strong></p>
+        </div>
+        <div class="flex items-start gap-3.5 p-3.5 px-[18px] bg-white/60 backdrop-blur-[6px] rounded-[10px] border border-orange-200/40 border-l-2 border-l-red-400/40 shadow-[0_2px_12px_rgba(180,83,9,0.06)]">
+          <span class="text-2xl text-red-400/50 font-serif leading-none shrink-0">&ldquo;</span>
+          <p class="text-base leading-[1.6] text-flyer-text font-light">他曾在大厂衣食无忧，却选择辞职创业，在一个没人看好的方向上融资百万——<strong class="text-flyer-heading font-medium">迈出信心的一步需要先相信再看见。</strong></p>
+        </div>
+        <div class="flex items-start gap-3.5 p-3.5 px-[18px] bg-white/60 backdrop-blur-[6px] rounded-[10px] border border-orange-200/40 border-l-2 border-l-red-400/40 shadow-[0_2px_12px_rgba(180,83,9,0.06)]">
+          <span class="text-2xl text-red-400/50 font-serif leading-none shrink-0">&ldquo;</span>
+          <p class="text-base leading-[1.6] text-flyer-text font-light">他们因信仰相遇成为合伙人，用 AI 培养社会急需的医疗护工——<strong class="text-flyer-heading font-medium">当世界用 AI 淘汰人，信仰让他们看见人的价值。</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom section -->
+  <div>
+    <div class="flex items-start justify-between mb-6">
+      <div class="flex items-start gap-6">
+        <div class="shrink-0">
+          <img class="w-[100px] h-[100px] rounded-[14px] object-contain" src="assets/adobe-express-qr-code.png" alt="QR Code" />
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <span class="text-xs font-bold tracking-[3px] text-orange-700/60 uppercase">TIME 时间</span>
+          <span class="text-[17px] font-medium text-flyer-heading leading-[1.5]">2026.03.08 起 &middot; 连续 8 周<br/>每周日 2:00 – 5:00 PM</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <svg class="w-10 h-10 fill-orange-600 shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div class="flex flex-col gap-1.5">
+          <span class="text-xs font-bold tracking-[3px] text-orange-700/60 uppercase">LOCATION 地点</span>
+          <span class="text-[17px] font-medium text-flyer-heading leading-[1.5]">10340 Bubb Rd, Cupertino, CA 95014</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bottom accent bar -->
+<div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
+
+</body>
+</html>

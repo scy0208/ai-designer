@@ -1,0 +1,15 @@
+{
+  "name": "design",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "render": "node render.mjs flyer-tailwind.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "playwright": "^1.58.2"
+  }
+}

@@ -246,37 +246,17 @@ tailwind.config = {
   </div>
   <!-- Grid overlay -->
   <div class="absolute inset-0 z-[1] grid-pattern"></div>
-  <!-- Content -->
-  <div class="relative z-10 flex flex-col items-center justify-center h-full">
-    <div class="w-[1600px] h-[800px] border-2 border-dashed border-blue-500/20 rounded-2xl flex items-center justify-center">
-      <div class="text-[36px] text-flyer-text/40 tracking-[4px]">往期活动照片</div>
-    </div>
-  </div>
+  <!-- Full-bleed photo -->
+  <img src="assets/photo-venue.jpg" class="absolute inset-0 w-full h-full object-cover z-[2]" />
+  <div class="absolute inset-0 z-[3] bg-gradient-to-t from-[#162038]/80 via-transparent to-[#162038]/30"></div>
   <!-- Bottom accent bar -->
   <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>
 
-<!-- ====== SLIDE 6: 照片 Placeholder 2 ====== -->
-<div class="slide bg-flyer-bg font-sans text-white">
-  <!-- Background gradient orbs -->
-  <div class="absolute inset-0 z-0">
-    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -top-[300px] -right-[200px]"
-         style="background: radial-gradient(circle, rgba(59,130,246,0.65) 0%, transparent 70%)"></div>
-    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] top-[400px] -left-[300px]"
-         style="background: radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"></div>
-    <div class="absolute rounded-full blur-[380px] w-[1000px] h-[1000px] -bottom-[200px] -right-[150px]"
-         style="background: radial-gradient(circle, rgba(6,182,212,0.45) 0%, transparent 70%)"></div>
-    <div class="absolute rounded-full blur-[380px] w-[700px] h-[700px] bottom-[100px] left-[300px]"
-         style="background: radial-gradient(circle, rgba(59,130,246,0.38) 0%, transparent 70%)"></div>
-  </div>
-  <!-- Grid overlay -->
-  <div class="absolute inset-0 z-[1] grid-pattern"></div>
-  <!-- Content -->
-  <div class="relative z-10 flex flex-col items-center justify-center h-full">
-    <div class="w-[1600px] h-[800px] border-2 border-dashed border-blue-500/20 rounded-2xl flex items-center justify-center">
-      <div class="text-[36px] text-flyer-text/40 tracking-[4px]">小组讨论 / 合影</div>
-    </div>
-  </div>
+<!-- ====== SLIDE 6: 台上分享 ====== -->
+<div class="slide relative overflow-hidden">
+  <img src="assets/photo-sharing.jpg" class="absolute inset-0 w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-gradient-to-t from-[#162038]/80 via-transparent to-[#162038]/30"></div>
   <!-- Bottom accent bar -->
   <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
 </div>

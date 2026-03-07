@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Noto Sans CJK SC', 'Noto Sans SC', 'sans-serif'],
+        serif: ['Noto Serif CJK SC', 'serif'],
+      },
+      colors: {
+        slide: {
+          bg: '#0A0E1F',
+          accent: '#5B9AE8',
+          accentLight: '#74b2ea',
+          text: '#C8D8E8',
+          muted: '#6B7FA0',
+          heading: '#FFFFFF',
+        }
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+  @layer utilities {
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+    .slide-glow {
+      background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(74,138,212,0.15) 0%, transparent 70%);
+    }
+    .scan-lines {
+      background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 3px, rgba(74,138,212,0.03) 3px, rgba(74,138,212,0.03) 4px
+      );
+    }
+    .gradient-text-gold {
+      background: linear-gradient(90deg, #5B9AE8, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+</style>
+</head>
+<body class="bg-black">
+
+<!-- ====== SLIDE 1: TITLE ====== -->
+<div class="slide bg-slide-bg">
+  <div class="absolute inset-0 slide-glow"></div>
+  <div class="absolute inset-0 scan-lines"></div>
+  <div class="relative z-10 flex flex-col items-center justify-center h-full px-20">
+    <div class="text-[14px] font-medium tracking-[14px] text-slide-accent/60 uppercase mb-8">ENTREPRENEUR HAPPINESS GROUP</div>
+    <img src="assets/创业幸福小组logo.png" alt="logo" class="h-[120px] mb-10 opacity-90" />
+    <h1 class="font-serif text-[72px] font-black tracking-[8px] text-white mb-6">创业幸福小组</h1>
+    <div class="text-[28px] tracking-[6px] text-slide-text/70">2026  ·  第三期  ·  8周深度成长营</div>
+    <div class="absolute bottom-12 w-[200px] h-[2px] bg-gradient-to-r from-transparent via-slide-accent/40 to-transparent"></div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 2: 欢迎 ====== -->
+<div class="slide bg-slide-bg">
+  <div class="absolute inset-0 slide-glow"></div>
+  <div class="absolute inset-0 scan-lines"></div>
+  <div class="relative z-10 flex flex-col justify-center h-full px-28">
+    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">WELCOME</div>
+    <h2 class="font-serif text-[48px] font-bold text-white mb-12">欢迎</h2>
+    <div class="text-[26px] leading-[2] text-slide-text font-light max-w-[1400px]">
+      我们是一群创业者，也是基督徒。<br/><br/>
+      我们发现，信仰让我们成为了更好的创业者——<br/>
+      <span class="text-slide-accentLight font-normal">更多的平安，更少的焦虑；</span><br/>
+      在风云变幻中能更冷静地做决策；<br/>
+      <span class="text-slide-accentLight font-normal">团队更合一，事业也意想不到地蒙福。</span><br/><br/>
+      所以我们办了这个小组，想把这份经历分享给更多同路人。
+    </div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 3: 使命 ====== -->
+<div class="slide bg-slide-bg">
+  <div class="absolute inset-0 slide-glow"></div>
+  <div class="absolute inset-0 scan-lines"></div>
+  <div class="relative z-10 flex flex-col justify-center h-full px-28">
+    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">OUR MISSION</div>
+    <h2 class="font-serif text-[48px] font-bold text-white mb-4">我们的使命</h2>
+    <div class="font-serif text-[32px] font-bold gradient-text-gold mb-14">把幸福带给创业者，陪你走最难的路</div>
+
+    <div class="flex flex-col gap-10 max-w-[1400px]">
+      <div class="flex items-start gap-8">
+        <div class="text-[18px] font-bold tracking-[3px] text-slide-accent/40 shrink-0 mt-1">01</div>
+        <div class="text-[24px] leading-[1.8] text-slide-text font-light">
+          分享真实改变创业者人生的故事，<br/>和带来改变的原因——<span class="text-white font-medium">信仰</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-8">
+        <div class="text-[18px] font-bold tracking-[3px] text-slide-accent/40 shrink-0 mt-1">02</div>
+        <div class="text-[24px] leading-[1.8] text-slide-text font-light">
+          帮助创业者在<span class="text-white font-medium">内在生命成长</span>与<span class="text-white font-medium">外在商业技能</span>上同步推进
+        </div>
+      </div>
+      <div class="flex items-start gap-8">
+        <div class="text-[18px] font-bold tracking-[3px] text-slide-accent/40 shrink-0 mt-1">03</div>
+        <div class="text-[24px] leading-[1.8] text-slide-text font-light">
+          创业不再孤独，我们共建社区，<br/>与一群真正理解你的人<span class="text-white font-medium">共同成长</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 4: 我们的故事 ====== -->
+<div class="slide bg-slide-bg">
+  <div class="absolute inset-0 slide-glow"></div>
+  <div class="absolute inset-0 scan-lines"></div>
+  <div class="relative z-10 flex flex-col justify-center h-full px-28">
+    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">OUR STORY</div>
+    <h2 class="font-serif text-[48px] font-bold text-white mb-3">我们的故事</h2>
+    <div class="text-[20px] tracking-[4px] text-slide-muted mb-14">2024年至今  ·  第三期  ·  累计超过百人参与</div>
+
+    <div class="flex flex-col gap-6 max-w-[1400px]">
+      <div class="flex items-center gap-5">
+        <div class="w-2 h-2 rounded-full bg-slide-accent/50 shrink-0"></div>
+        <div class="text-[24px] text-slide-text font-light">有经历过<span class="text-white font-medium">高价收购</span>的连续创业者</div>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="w-2 h-2 rounded-full bg-slide-accent/50 shrink-0"></div>
+        <div class="text-[24px] text-slide-text font-light">有完成<span class="text-white font-medium">百万美元融资</span>的创业者</div>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="w-2 h-2 rounded-full bg-slide-accent/50 shrink-0"></div>
+        <div class="text-[24px] text-slide-text font-light">有人在我们中间找到了<span class="text-white font-medium">合伙人</span></div>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="w-2 h-2 rounded-full bg-slide-accent/50 shrink-0"></div>
+        <div class="text-[24px] text-slide-text font-light">有人在参加完活动后迈出了<span class="text-white font-medium">创业第一步</span></div>
+      </div>
+      <div class="flex items-center gap-5 mt-4">
+        <div class="w-2 h-2 rounded-full bg-slide-accentLight shrink-0"></div>
+        <div class="text-[24px] text-slide-text font-light">更有超过十位伙伴，在这里<span class="text-white font-medium">收获了信仰</span>，找到了内心真正的平安与人生方向</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 5: 照片 Placeholder 1 ====== -->
+<div class="slide bg-slide-bg">
+  <div class="absolute inset-0 slide-glow"></div>
+  <div class="absolute inset-0 scan-lines"></div>
+  <div class="relative z-10 flex flex-col items-center justify-center h-full">
+    <div class="w-[1600px] h-[800px] border-2 border-dashed border-slide-accent/20 rounded-2xl flex items-center justify-center">
+      <div class="text-[36px] text-slide-muted/40 tracking-[4px]">往期活动照片</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 6: 照片 Placeholder 2 ====== -->
+<div class="slide bg-slide-bg">
+  <div class="absolute inset-0 slide-glow"></div>
+  <div class="absolute inset-0 scan-lines"></div>
+  <div class="relative z-10 flex flex-col items-center justify-center h-full">
+    <div class="w-[1600px] h-[800px] border-2 border-dashed border-slide-accent/20 rounded-2xl flex items-center justify-center">
+      <div class="text-[36px] text-slide-muted/40 tracking-[4px]">小组讨论 / 合影</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 7: 创业实战干货 ====== -->
+<div class="slide bg-slide-bg">
+  <div class="absolute inset-0 slide-glow"></div>
+  <div class="absolute inset-0 scan-lines"></div>
+  <div class="relative z-10 flex flex-col justify-center h-full px-28">
+    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">WHAT YOU'LL GET</div>
+    <h2 class="font-serif text-[42px] font-bold text-white mb-3">这8周你会得到什么</h2>
+    <div class="text-[22px] tracking-[4px] text-slide-accent/70 mb-12">创业实战干货  ·  每周一个专题</div>
+
+    <div class="grid grid-cols-2 gap-x-16 gap-y-5 max-w-[1600px]">
+      <div class="flex items-start gap-4">
+        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
+        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">我是否该创业？</span><br/><span class="text-[17px] text-slide-muted">创业 readiness 坐标轴，清楚定位自己</span></div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
+        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">创业合伙人如何选择</span><br/><span class="text-[17px] text-slide-muted">怎么找、什么标准、如何提前准备</span></div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
+        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">创业法律避坑指南</span><br/><span class="text-[17px] text-slide-muted">法律常识与法务基础 setup</span></div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
+        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">BP 与 Pitch Deck</span><br/><span class="text-[17px] text-slide-muted">写出让投资人买单的商业计划书</span></div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
+        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">投资人寻找与融资节奏</span><br/><span class="text-[17px] text-slide-muted">投资人关系网，有节奏地 Pitch</span></div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
+        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">SAFE & Convertible Note</span><br/><span class="text-[17px] text-slide-muted">融资法律基础，看懂 term sheet</span></div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
+        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">AI时代的产品打造</span><br/><span class="text-[17px] text-slide-muted">实战案例与工程团队配置</span></div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="text-[14px] text-slide-accent/40 font-bold mt-1 shrink-0">▸</div>
+        <div class="text-[20px] text-slide-text font-light leading-[1.6]"><span class="text-white font-medium">toB 销售 & toC 增长</span><br/><span class="text-[17px] text-slide-muted">BD、Sales、投流、运营、社区</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SLIDE 8: 生命成长线 ====== -->
+<div class="slide bg-slide-bg">
+  <div class="absolute inset-0 slide-glow"></div>
+  <div class="absolute inset-0 scan-lines"></div>
+  <div class="relative z-10 flex flex-col justify-center h-full px-28">
+    <div class="text-[14px] font-medium tracking-[10px] text-slide-accent/50 uppercase mb-6">WHAT YOU'LL GET</div>
+    <h2 class="font-serif text-[42px] font-bold text-white mb-3">这8周你会得到什么</h2>
+    <div class="text-[22px] tracking-[4px] text-slide-accent/70 mb-12">生命成长线  ·  每周小组深度讨论</div>
+
+    <div class="flex flex-col gap-7 max-w-[1400px]">
+      <div class="flex items-center gap-6">
+        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">01</div>
+        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">真幸福</span> — 创业中快速找到幸福感与笃定感的捷径</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">02</div>
+        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">真相大白</span> — 创业者为什么这么焦虑和痛苦</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">03</div>
+        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">万世巨星</span> — 有请人生和公司的董事长正式出场</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">04</div>
+        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">幸福连线</span> — 孤独创业路上的烦恼该给谁说</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">05</div>
+        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">当上帝来敲门</span> — 如何邀请董事长入职</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">06</div>
+        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">十字架的胜利</span> — 以终为始：什么是成功的人生</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">07</div>
+        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">释放与自由</span> — 用新视角回看走过的路程与挑战</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="text-[16px] font-bold text-slide-accent/40 shrink-0 w-8">08</div>
+        <div class="text-[24px] text-slide-text font-light"><span class="text-white font-medium">幸福的教会</span> — 地上的事业如何关联天国的事业</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

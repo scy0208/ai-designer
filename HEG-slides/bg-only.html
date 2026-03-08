@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        flyer: {
+          bg: '#162038',
+        }
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+  @layer utilities {
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 8px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 8px, transparent 1px);
+      background-size: 128px 128px;
+    }
+    .bottom-gradient-accent {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+    }
+  }
+</style>
+</head>
+<body class="bg-black">
+
+<!-- BG 1: Standard orbs (slides 1-4) -->
+<div class="slide bg-flyer-bg">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -top-[300px] -right-[200px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.65) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] top-[400px] -left-[300px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1000px] h-[1000px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.45) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[700px] h-[700px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.38) 0%, transparent 70%)"></div>
+  </div>
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
+</div>
+
+<!-- BG 2: Boosted orbs (slides 7-8) -->
+<div class="slide bg-flyer-bg">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute rounded-full blur-[380px] w-[1600px] h-[1600px] -top-[400px] -right-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.75) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] top-[200px] -left-[400px]"
+         style="background: radial-gradient(circle, rgba(139,92,246,0.6) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[1200px] h-[1200px] -bottom-[200px] -right-[150px]"
+         style="background: radial-gradient(circle, rgba(6,182,212,0.5) 0%, transparent 70%)"></div>
+    <div class="absolute rounded-full blur-[380px] w-[900px] h-[900px] bottom-[100px] left-[300px]"
+         style="background: radial-gradient(circle, rgba(59,130,246,0.45) 0%, transparent 70%)"></div>
+  </div>
+  <div class="absolute inset-0 z-[1] grid-pattern"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] z-10 bottom-gradient-accent"></div>
+</div>
+
+</body>
+</html>
